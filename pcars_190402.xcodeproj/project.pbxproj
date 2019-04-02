@@ -10,6 +10,8 @@
 		C0C8BB5222536503007E523D /* pcars_190402.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C8BB4822536503007E523D /* pcars_190402.framework */; };
 		C0C8BB5722536503007E523D /* pcars_190402Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8BB5622536503007E523D /* pcars_190402Tests.swift */; };
 		C0C8BB5922536504007E523D /* pcars_190402.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C8BB4B22536503007E523D /* pcars_190402.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0C8BB6322536725007E523D /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8BB6222536725007E523D /* Reader.swift */; };
+		C0C8BB6422536725007E523D /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8BB6222536725007E523D /* Reader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 		C0C8BB5122536503007E523D /* pcars_190402Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pcars_190402Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C8BB5622536503007E523D /* pcars_190402Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pcars_190402Tests.swift; sourceTree = "<group>"; };
 		C0C8BB5822536504007E523D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0C8BB6222536725007E523D /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			children = (
 				C0C8BB4B22536503007E523D /* pcars_190402.h */,
 				C0C8BB4C22536503007E523D /* Info.plist */,
+				C0C8BB6222536725007E523D /* Reader.swift */,
 			);
 			path = pcars_190402;
 			sourceTree = "<group>";
@@ -148,6 +152,7 @@
 				TargetAttributes = {
 					C0C8BB4722536503007E523D = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					C0C8BB5022536503007E523D = {
 						CreatedOnToolsVersion = 10.2;
@@ -194,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C8BB6322536725007E523D /* Reader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C8BB6422536725007E523D /* Reader.swift in Sources */,
 				C0C8BB5722536503007E523D /* pcars_190402Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +347,7 @@
 		C0C8BB5D22536504007E523D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -358,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "rough-ideas.pcars-190402";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -365,6 +374,7 @@
 		C0C8BB5E22536504007E523D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -390,6 +400,7 @@
 		C0C8BB6022536504007E523D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = pcars_190402Tests/Info.plist;
@@ -407,6 +418,7 @@
 		C0C8BB6122536504007E523D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = pcars_190402Tests/Info.plist;
