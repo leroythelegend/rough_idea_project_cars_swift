@@ -1,5 +1,5 @@
 //
-//  ReaderUDPTest.swift
+//  TelemetryV2Test.swift
 //  pcars_190402Tests
 //
 //  Created by Leigh McLean on 3/4/19.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ReaderUDPTest: XCTestCase {
+class TelemetryV2Test: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,19 +21,8 @@ class ReaderUDPTest: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        do {
-        
-            let reader : ReaderUDP = try ReaderUDP(port : "5606")
-            var i = 1
-            while i != 0 {
-                i -= 1
-                let _ : Data = reader.read(amount : 4096)
-            }
-        }
-        catch {
-            XCTAssert(false)
-            return
-        }
+        let telemetry : TelemetryV2 = TelemetryV2()
+        telemetry.start(process: nil);
     }
 
     func testPerformanceExample() {

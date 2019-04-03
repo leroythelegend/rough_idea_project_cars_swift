@@ -135,7 +135,7 @@ class ReaderUDP : Reader {
     ///   - Data: read
     ///
     
-    public func read(amount : Int) throws -> (Data) {
+    public func read(amount : Int) -> (Data) {
         
         let theirAddr: UnsafeMutablePointer<sockaddr>? = nil
         let theirAddrLen: UnsafeMutablePointer<socklen_t>? = nil

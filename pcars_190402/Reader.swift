@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Reader {
-    func read(amount : Int) throws -> (Data)
+    func read(amount : Int) -> (Data)
 }

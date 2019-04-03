@@ -8,6 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		C0A78BF4225456B100BC5C5A /* ReaderUDPTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF3225456B100BC5C5A /* ReaderUDPTest.swift */; };
+		C0A78BF622546EA200BC5C5A /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF522546EA200BC5C5A /* Process.swift */; };
+		C0A78BF822546EF000BC5C5A /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF722546EF000BC5C5A /* Packet.swift */; };
+		C0A78BFA22546F4200BC5C5A /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF922546F4200BC5C5A /* Telemetry.swift */; };
+		C0A78BFC22546F9500BC5C5A /* TelemetryV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BFB22546F9500BC5C5A /* TelemetryV2.swift */; };
+		C0A78BFE2254743500BC5C5A /* PacketBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BFD2254743500BC5C5A /* PacketBase.swift */; };
+		C0A78C00225474B300BC5C5A /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BFF225474B300BC5C5A /* Decoder.swift */; };
+		C0A78C022254751900BC5C5A /* Decoder32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C012254751900BC5C5A /* Decoder32.swift */; };
+		C0A78C042254826800BC5C5A /* TelemetryV2Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C032254826800BC5C5A /* TelemetryV2Test.swift */; };
+		C0A78C082254831C00BC5C5A /* TelemetryV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BFB22546F9500BC5C5A /* TelemetryV2.swift */; };
+		C0A78C092254832100BC5C5A /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF922546F4200BC5C5A /* Telemetry.swift */; };
+		C0A78C0A2254832900BC5C5A /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF522546EA200BC5C5A /* Process.swift */; };
+		C0A78C0B2254832D00BC5C5A /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BF722546EF000BC5C5A /* Packet.swift */; };
+		C0A78C0C2254833400BC5C5A /* PacketBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BFD2254743500BC5C5A /* PacketBase.swift */; };
+		C0A78C0D2254833700BC5C5A /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78BFF225474B300BC5C5A /* Decoder.swift */; };
+		C0A78C0E2254833A00BC5C5A /* Decoder32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C012254751900BC5C5A /* Decoder32.swift */; };
+		C0A78C102254968E00BC5C5A /* Decoder8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C0F2254968E00BC5C5A /* Decoder8.swift */; };
+		C0A78C112254968E00BC5C5A /* Decoder8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C0F2254968E00BC5C5A /* Decoder8.swift */; };
+		C0A78C132254ACB700BC5C5A /* Decoder16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C122254ACB700BC5C5A /* Decoder16.swift */; };
+		C0A78C142254ACB700BC5C5A /* Decoder16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C122254ACB700BC5C5A /* Decoder16.swift */; };
+		C0A78C162254AD3300BC5C5A /* PacketGameStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C152254AD3300BC5C5A /* PacketGameStateData.swift */; };
+		C0A78C172254AD3300BC5C5A /* PacketGameStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C152254AD3300BC5C5A /* PacketGameStateData.swift */; };
+		C0A78C192254AFC800BC5C5A /* DecoderGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C182254AFC800BC5C5A /* DecoderGameState.swift */; };
+		C0A78C1A2254AFC800BC5C5A /* DecoderGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C182254AFC800BC5C5A /* DecoderGameState.swift */; };
+		C0A78C1C2254B0CF00BC5C5A /* Decoder4LSBits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C1B2254B0CF00BC5C5A /* Decoder4LSBits.swift */; };
+		C0A78C1D2254B0CF00BC5C5A /* Decoder4LSBits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C1B2254B0CF00BC5C5A /* Decoder4LSBits.swift */; };
+		C0A78C1F2254B1D400BC5C5A /* Decoder4MSBits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C1E2254B1D400BC5C5A /* Decoder4MSBits.swift */; };
+		C0A78C202254B1D400BC5C5A /* Decoder4MSBits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A78C1E2254B1D400BC5C5A /* Decoder4MSBits.swift */; };
 		C0C8BB5222536503007E523D /* pcars_190402.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C8BB4822536503007E523D /* pcars_190402.framework */; };
 		C0C8BB5722536503007E523D /* pcars_190402Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8BB5622536503007E523D /* pcars_190402Tests.swift */; };
 		C0C8BB5922536504007E523D /* pcars_190402.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C8BB4B22536503007E523D /* pcars_190402.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +56,20 @@
 
 /* Begin PBXFileReference section */
 		C0A78BF3225456B100BC5C5A /* ReaderUDPTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderUDPTest.swift; sourceTree = "<group>"; };
+		C0A78BF522546EA200BC5C5A /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		C0A78BF722546EF000BC5C5A /* Packet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
+		C0A78BF922546F4200BC5C5A /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
+		C0A78BFB22546F9500BC5C5A /* TelemetryV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryV2.swift; sourceTree = "<group>"; };
+		C0A78BFD2254743500BC5C5A /* PacketBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketBase.swift; sourceTree = "<group>"; };
+		C0A78BFF225474B300BC5C5A /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		C0A78C012254751900BC5C5A /* Decoder32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder32.swift; sourceTree = "<group>"; };
+		C0A78C032254826800BC5C5A /* TelemetryV2Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryV2Test.swift; sourceTree = "<group>"; };
+		C0A78C0F2254968E00BC5C5A /* Decoder8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder8.swift; sourceTree = "<group>"; };
+		C0A78C122254ACB700BC5C5A /* Decoder16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder16.swift; sourceTree = "<group>"; };
+		C0A78C152254AD3300BC5C5A /* PacketGameStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketGameStateData.swift; sourceTree = "<group>"; };
+		C0A78C182254AFC800BC5C5A /* DecoderGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderGameState.swift; sourceTree = "<group>"; };
+		C0A78C1B2254B0CF00BC5C5A /* Decoder4LSBits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder4LSBits.swift; sourceTree = "<group>"; };
+		C0A78C1E2254B1D400BC5C5A /* Decoder4MSBits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder4MSBits.swift; sourceTree = "<group>"; };
 		C0C8BB4822536503007E523D /* pcars_190402.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pcars_190402.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C8BB4B22536503007E523D /* pcars_190402.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pcars_190402.h; sourceTree = "<group>"; };
 		C0C8BB4C22536503007E523D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +124,19 @@
 				C0C8BB4C22536503007E523D /* Info.plist */,
 				C0C8BB6222536725007E523D /* Reader.swift */,
 				C0C8BB6522536C8A007E523D /* ReaderUDP.swift */,
+				C0A78BF522546EA200BC5C5A /* Process.swift */,
+				C0A78BF722546EF000BC5C5A /* Packet.swift */,
+				C0A78BF922546F4200BC5C5A /* Telemetry.swift */,
+				C0A78BFB22546F9500BC5C5A /* TelemetryV2.swift */,
+				C0A78BFD2254743500BC5C5A /* PacketBase.swift */,
+				C0A78BFF225474B300BC5C5A /* Decoder.swift */,
+				C0A78C012254751900BC5C5A /* Decoder32.swift */,
+				C0A78C0F2254968E00BC5C5A /* Decoder8.swift */,
+				C0A78C122254ACB700BC5C5A /* Decoder16.swift */,
+				C0A78C152254AD3300BC5C5A /* PacketGameStateData.swift */,
+				C0A78C182254AFC800BC5C5A /* DecoderGameState.swift */,
+				C0A78C1B2254B0CF00BC5C5A /* Decoder4LSBits.swift */,
+				C0A78C1E2254B1D400BC5C5A /* Decoder4MSBits.swift */,
 			);
 			path = pcars_190402;
 			sourceTree = "<group>";
@@ -90,6 +144,7 @@
 		C0C8BB5522536503007E523D /* pcars_190402Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C0A78C032254826800BC5C5A /* TelemetryV2Test.swift */,
 				C0A78BF3225456B100BC5C5A /* ReaderUDPTest.swift */,
 				C0C8BB5622536503007E523D /* pcars_190402Tests.swift */,
 				C0C8BB5822536504007E523D /* Info.plist */,
@@ -207,7 +262,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C8BB6622536C8A007E523D /* ReaderUDP.swift in Sources */,
+				C0A78C162254AD3300BC5C5A /* PacketGameStateData.swift in Sources */,
+				C0A78BFC22546F9500BC5C5A /* TelemetryV2.swift in Sources */,
 				C0C8BB6322536725007E523D /* Reader.swift in Sources */,
+				C0A78C102254968E00BC5C5A /* Decoder8.swift in Sources */,
+				C0A78BF622546EA200BC5C5A /* Process.swift in Sources */,
+				C0A78C1C2254B0CF00BC5C5A /* Decoder4LSBits.swift in Sources */,
+				C0A78BFA22546F4200BC5C5A /* Telemetry.swift in Sources */,
+				C0A78C192254AFC800BC5C5A /* DecoderGameState.swift in Sources */,
+				C0A78BF822546EF000BC5C5A /* Packet.swift in Sources */,
+				C0A78C00225474B300BC5C5A /* Decoder.swift in Sources */,
+				C0A78C022254751900BC5C5A /* Decoder32.swift in Sources */,
+				C0A78C1F2254B1D400BC5C5A /* Decoder4MSBits.swift in Sources */,
+				C0A78BFE2254743500BC5C5A /* PacketBase.swift in Sources */,
+				C0A78C132254ACB700BC5C5A /* Decoder16.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,9 +284,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C8BB6422536725007E523D /* Reader.swift in Sources */,
+				C0A78C0E2254833A00BC5C5A /* Decoder32.swift in Sources */,
+				C0A78C1A2254AFC800BC5C5A /* DecoderGameState.swift in Sources */,
+				C0A78C082254831C00BC5C5A /* TelemetryV2.swift in Sources */,
 				C0C8BB5722536503007E523D /* pcars_190402Tests.swift in Sources */,
 				C0A78BF4225456B100BC5C5A /* ReaderUDPTest.swift in Sources */,
+				C0A78C142254ACB700BC5C5A /* Decoder16.swift in Sources */,
+				C0A78C042254826800BC5C5A /* TelemetryV2Test.swift in Sources */,
+				C0A78C172254AD3300BC5C5A /* PacketGameStateData.swift in Sources */,
 				C0C8BB6722536C8A007E523D /* ReaderUDP.swift in Sources */,
+				C0A78C0B2254832D00BC5C5A /* Packet.swift in Sources */,
+				C0A78C1D2254B0CF00BC5C5A /* Decoder4LSBits.swift in Sources */,
+				C0A78C112254968E00BC5C5A /* Decoder8.swift in Sources */,
+				C0A78C0D2254833700BC5C5A /* Decoder.swift in Sources */,
+				C0A78C092254832100BC5C5A /* Telemetry.swift in Sources */,
+				C0A78C202254B1D400BC5C5A /* Decoder4MSBits.swift in Sources */,
+				C0A78C0C2254833400BC5C5A /* PacketBase.swift in Sources */,
+				C0A78C0A2254832900BC5C5A /* Process.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
