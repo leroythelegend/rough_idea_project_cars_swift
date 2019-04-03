@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol Reader
-{
-    func read() -> Array<UInt8>
+protocol Reader {
+    func read(amount : Int) throws -> (Data)
 }
