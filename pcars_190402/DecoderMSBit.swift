@@ -1,30 +1,31 @@
 //
-//  Decoder4MSBits.swift
+//  DecoderMSBit.swift
 //  pcars_190402
 //
-//  Created by Leroy on 3/4/19.
+//  Created by Leroy on 10/4/19.
 //  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
 
 ///
-/// Decode 4 LSBits XXXX 0000
+/// Decode Most Significant Bit X000 0000
 ///
 
-class Decoder4MSBits : Decoder {
+class DecoderMSBit : Decoder {
     
     private var bytes : Data
-    
+ 
     ///
-    /// Decoder4MSBits init
+    /// DecoderMSBit init
     ///
     
     override init() {
         self.bytes = Data(count: 1)
     }
- 
-    /// Decode 4 Most Significant Bits
+
+    ///
+    /// Decode Most Significant Bit
     ///
     /// - parameters:
     ///   - data: to be decoded
@@ -43,17 +44,20 @@ class Decoder4MSBits : Decoder {
     }
  
     ///
-    /// Returns bytes as unsigned int
+    /// Returns bool
     ///
     /// - returns:
-    ///   - UInt: unsigned int
+    ///   - Bool: bool
     ///
-
-    override func uint() -> UInt {
-        var value : UInt = 0
+    
+    override func bool() -> Bool {
+        var value : Bool = false
         
-        value = UInt((self.bytes[0] & 240) >> 4)
+        if (self.bytes[0] & 128) == 128 {
+            value = true
+        }
         
         return value
     }
 }
+

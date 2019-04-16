@@ -1,30 +1,31 @@
 //
-//  Decoder4MSBits.swift
+//  Decoder7LSBits.swift
 //  pcars_190402
 //
-//  Created by Leroy on 3/4/19.
+//  Created by Leroy on 10/4/19.
 //  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
 
 ///
-/// Decode 4 LSBits XXXX 0000
+/// Decider 7 Least Significant Bits 0XXX XXXX
 ///
 
-class Decoder4MSBits : Decoder {
+class Decoder7LSBits : Decoder {
     
     private var bytes : Data
-    
+ 
     ///
-    /// Decoder4MSBits init
+    /// Decoder7LSBits init
     ///
     
     override init() {
         self.bytes = Data(count: 1)
     }
- 
-    /// Decode 4 Most Significant Bits
+
+    ///
+    /// Decode 7 Least Significant Bits
     ///
     /// - parameters:
     ///   - data: to be decoded
@@ -41,9 +42,9 @@ class Decoder4MSBits : Decoder {
         }
         self.bytes = data.subdata(in: 0..<1)
     }
- 
+  
     ///
-    /// Returns bytes as unsigned int
+    /// Returns unsigned int
     ///
     /// - returns:
     ///   - UInt: unsigned int
@@ -52,7 +53,7 @@ class Decoder4MSBits : Decoder {
     override func uint() -> UInt {
         var value : UInt = 0
         
-        value = UInt((self.bytes[0] & 240) >> 4)
+        value = UInt(self.bytes[0] & 127)
         
         return value
     }

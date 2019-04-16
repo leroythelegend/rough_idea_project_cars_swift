@@ -2,27 +2,50 @@
 //  Packet.swift
 //  pcars_190402
 //
-//  Created by Leigh McLean on 3/4/19.
-//  Copyright © 2019 Leigh McLean. All rights reserved.
+//  Created by Leroy on 3/4/19.
+//  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
 
-class Packet : Decoder {
+///
+/// Packet
+///
+
+class Packet {
     
-    private var decoders : Array<Decoder>
+    private var decoders: Array<Decoder>
     
-    override init() {
-        decoders = Array<Decoder>()
+    ///
+    /// Packet init
+    ///
+
+    init() {
+        self.decoders = Array<Decoder>()
     }
+ 
+    ///
+    /// Calls the decode function for all of the decodes
+    /// in decoders
+    ///
+    /// - parameters:
+    ///   - data: to be decoded
+    ///
     
-    override func decode(data: inout Data) {
-        for decode in decoders {
+    func decode(data: inout Data) {
+        for decode in self.decoders {
             decode.decode(data: &data)
         }
     }
+
+    ///
+    /// Add decoder to decoders
+    ///
+    /// - parameters:
+    ///   - decoder: to be added to decoders
+    ///
     
-    func add(decoder : inout Decoder) {
-        decoders.append(decoder)
+    func addDecoder(_ decoder : Decoder) {
+        self.decoders.append(decoder)
     }
 }

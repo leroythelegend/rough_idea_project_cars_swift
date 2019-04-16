@@ -24,7 +24,7 @@ class ReaderUDPTest: XCTestCase {
         do {
         
             let reader : ReaderUDP = try ReaderUDP(port : "5606")
-            var i = 1
+            var i = 100
             while i != 0 {
                 i -= 1
                 let _ : Data = reader.read(amount : 4096)

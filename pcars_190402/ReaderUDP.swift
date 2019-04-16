@@ -2,7 +2,7 @@
 //  udp.swift
 //  udp
 //
-//  Created by leigh mclean on 9/1/19.
+//  Created by leroy on 9/1/19.
 //  Copyright © 2019 roughidea. All rights reserved.
 //
 
@@ -24,7 +24,7 @@ enum ReaderUDPError : Error {
 /// ReaderUDP
 ///
 
-class ReaderUDP : Reader {
+class ReaderUDP {
     
     private var connectionHandle: Int32
     
@@ -33,6 +33,7 @@ class ReaderUDP : Reader {
     ///
     /// - parameters:
     ///   - port: The port number to listen to e.g. 5606 for pcars udp
+    /// - throws: An error of type `ReaderUDPError`
     ///
     
     init(port: String) throws {
@@ -127,7 +128,6 @@ class ReaderUDP : Reader {
     
     ///
     /// ReaderUDP read: Reads data from UDP
-    ///
     ///
     /// - parameters:
     ///   - amount: amount to be read
