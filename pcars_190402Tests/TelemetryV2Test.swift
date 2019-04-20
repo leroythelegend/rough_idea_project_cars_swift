@@ -2,11 +2,12 @@
 //  TelemetryV2Test.swift
 //  pcars_190402Tests
 //
-//  Created by Leigh McLean on 3/4/19.
-//  Copyright © 2019 Leigh McLean. All rights reserved.
+//  Created by Leroy on 3/4/19.
+//  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import XCTest
+@testable import pcars_190402
 
 class TelemetryV2Test: XCTestCase {
 
