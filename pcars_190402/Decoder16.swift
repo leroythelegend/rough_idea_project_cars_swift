@@ -14,14 +14,15 @@ import Foundation
 
 class Decoder16 : Decoder {
     
-    private var bytes : Data
+    private var bytes: Data
+    private let size: Int = 2
  
     ///
     /// Decoder16 init
     ///
     
     override init() {
-        self.bytes = Data(count: 2)
+        self.bytes = Data(count: size)
     }
 
     /// Decode 2 bytes in to bytes
@@ -33,14 +34,14 @@ class Decoder16 : Decoder {
     ///
 
     override func decode(data: inout Data) throws {
-        guard data.count >= 2 else {
+        guard data.count >= size else {
             throw PCarsUDPError.outOfRange
         }
-        self.bytes = data.subdata(in: 0..<2)
-        guard data.count > 2 else {
+        self.bytes = data.subdata(in: 0..<size)
+        guard data.count > size else {
             return
         }
-        data = data.advanced(by: 2)
+        data = data.advanced(by: size)
     }
  
     ///
