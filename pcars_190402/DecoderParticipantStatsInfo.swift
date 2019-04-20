@@ -2,36 +2,58 @@
 //  DecoderParticipantStatsInfo.swift
 //  pcars_190402
 //
-//  Created by Leigh McLean on 14/4/19.
-//  Copyright © 2019 Leigh McLean. All rights reserved.
+//  Created by Leroy on 14/4/19.
+//  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
 
+///
+/// Decoder Participant Stats Info
+///
+
 class DecoderParticipantStatsInfo : Decoder {
     
     private var bytes : Data
+   
+    ///
+    /// DecoderParticipantStatsInfo init
+    ///
     
     override init() {
-        bytes = Data(count: 32)
+        self.bytes = Data(count: 32)
     }
     
-    override func decode(data: inout Data) {
+    ///
+    /// Decode ParticipantStatsInfo
+    ///
+    /// - parameters:
+    ///   - data: to be decoded
+    /// - throws: Out of range
+    ///
+    
+    override func decode(data: inout Data) throws {
         guard data.count >= 32 else {
-            self.bytes = Data(repeating: 0xFF, count: 32)
-            return
+           throw PCarsUDPError.outOfRange
         }
-        bytes = data.subdata(in: 0..<32)
-        guard data.count != 70 else {
+        self.bytes = data.subdata(in: 0..<32)
+        guard data.count > 32 else {
             return
         }
         data = data.advanced(by: 32)
     }
     
-    override func participantStatsInfo() -> PacketParticipantStatsinfo {
+    ///
+    /// Returns participantStatsInfo
+    ///
+    /// - returns:
+    ///   - participantStatsInfo: participant Stats Info
+    ///
+    
+    override func participantStatsInfo() throws -> PacketParticipantStatsinfo {
         let packetParticipantStatsInfo = PacketParticipantStatsinfo()
         
-        packetParticipantStatsInfo.decode(data: &bytes)
+        try packetParticipantStatsInfo.decode(data: &self.bytes)
         
         return packetParticipantStatsInfo
     }

@@ -32,9 +32,9 @@ class Packet {
     ///   - data: to be decoded
     ///
     
-    func decode(data: inout Data) {
+    func decode(data: inout Data) throws {
         for decode in self.decoders {
-            decode.decode(data: &data)
+            try decode.decode(data: &data)
         }
     }
 

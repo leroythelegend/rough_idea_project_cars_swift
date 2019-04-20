@@ -33,12 +33,12 @@ class Decoder7LSBits : Decoder {
     ///              from the data. Must call
     ///              DecoderIncrement to move
     ///              data along.
+    /// - throws: Out of range
     ///
     
-    override func decode(data: inout Data) {
+    override func decode(data: inout Data) throws {
         guard data.count >= 1 else {
-            self.bytes = Data(repeating: 0xFF, count: 1)
-            return
+            throw PCarsUDPError.outOfRange
         }
         self.bytes = data.subdata(in: 0..<1)
     }

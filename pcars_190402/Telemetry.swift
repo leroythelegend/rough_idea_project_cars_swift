@@ -21,5 +21,5 @@ protocol Telemetry {
     ///   - completion: escapes PCar Version 2 Packets
     ///
     
-    func read(completion: @escaping ((_ packets: Packets?) -> Void))
+    func read(completion: @escaping ((_ packets: Packets?) -> Void)) throws
 }

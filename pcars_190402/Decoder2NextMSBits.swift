@@ -21,7 +21,7 @@ class Decoder2NextMSBits : Decoder {
     ///
     
     override init() {
-        bytes = Data(count: 1)
+        self.bytes = Data(count: 1)
     }
     
     ///
@@ -33,14 +33,14 @@ class Decoder2NextMSBits : Decoder {
     ///              from the data. Must call
     ///              DecoderIncrement to move
     ///              data along.
+    /// - throws: Out of range
     ///
 
-    override func decode(data: inout Data) {
+    override func decode(data: inout Data) throws {
         guard data.count >= 1 else {
-            self.bytes = Data(repeating: 0xFF, count: 1)
-            return
+            throw PCarsUDPError.outOfRange
         }
-        bytes = data.subdata(in: 0..<1)
+        self.bytes = data.subdata(in: 0..<1)
     }
     
     ///
@@ -51,7 +51,7 @@ class Decoder2NextMSBits : Decoder {
     ///
 
     override func uint() -> UInt {
-        return UInt((bytes[0] & 48) >> 4)
+        return UInt((self.bytes[0] & 48) >> 4)
     }
 }
 

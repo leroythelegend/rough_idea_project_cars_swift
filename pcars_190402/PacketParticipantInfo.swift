@@ -39,8 +39,10 @@ class PacketParticipantInfo  : Packet {
     var precisionXPosition : Decoder
     var precisionZPosition : Decoder
     var sector : Decoder
-    var highestFlag : Decoder
-    var pitModeSchedule : Decoder
+    var flagColour : Decoder
+    var flagReason : Decoder
+    var pitMode : Decoder
+    var pitSchedule : Decoder
     var isLocal : Decoder
     var carIndex : Decoder
     var isValidLap : Decoder
@@ -56,8 +58,14 @@ class PacketParticipantInfo  : Packet {
     
     override init() {
         
-        self.worldPositions = Array(repeating: Decoder16(), count: 3)
-        self.orientations = Array(repeating: Decoder16(), count: 3)
+        self.worldPositions = Array<Decoder>()
+        self.orientations = Array<Decoder>()
+        
+        for _ in 1...3 {
+            self.worldPositions.append(Decoder16())
+            self.orientations.append(Decoder16())
+        }
+        
         self.currentLapDistance = Decoder16()
         self.racePosition = Decoder7LSBits()
         self.isActive = DecoderMSBit()
@@ -65,8 +73,10 @@ class PacketParticipantInfo  : Packet {
         self.precisionXPosition = Decoder2MSBits()
         self.precisionZPosition = Decoder2NextMSBits()
         self.sector = Decoder4LSBits()
-        self.highestFlag = Decoder8()
-        self.pitModeSchedule = Decoder8()
+        self.flagColour = Decoder4MSBits()
+        self.flagReason = Decoder4LSBits()
+        self.pitMode = Decoder4MSBits()
+        self.pitSchedule = Decoder4LSBits()
         self.isLocal = DecoderMSBit()
         self.carIndex = Decoder7LSBits()
         self.isValidLap = Decoder4thBit()
@@ -92,8 +102,12 @@ class PacketParticipantInfo  : Packet {
         super.addDecoder(self.precisionZPosition)
         super.addDecoder(self.sector)
         super.addDecoder(self.increment)
-        super.addDecoder(self.highestFlag)
-        super.addDecoder(self.pitModeSchedule)
+        super.addDecoder(self.flagColour)
+        super.addDecoder(self.flagReason)
+        super.addDecoder(self.increment)
+        super.addDecoder(self.pitMode)
+        super.addDecoder(self.pitSchedule)
+        super.addDecoder(self.increment)
         super.addDecoder(self.isLocal)
         super.addDecoder(self.carIndex)
         super.addDecoder(self.increment)

@@ -9,18 +9,6 @@
 import Foundation
 
 ///
-/// UDP Reader Errors
-///
-
-enum ReaderUDPError : Error {
-    case getAddrInfo(error: Int32)
-    case socket(error: Int32)
-    case bind(error: Int32)
-    case read(error: Int)
-    case unknown
-}
-
-///
 /// ReaderUDP
 ///
 
@@ -33,7 +21,7 @@ class ReaderUDP {
     ///
     /// - parameters:
     ///   - port: The port number to listen to e.g. 5606 for pcars udp
-    /// - throws: An error of type `ReaderUDPError`
+    /// - throws: An error of type `PCarsUDPError`
     ///
     
     init(port: String) throws {
@@ -65,7 +53,7 @@ class ReaderUDP {
         }
         
         guard status == 0 else {
-            throw ReaderUDPError.getAddrInfo(error: status)
+            throw PCarsUDPError.getAddrInfo(error: status)
         }
         
         var info = serverInfo
@@ -107,13 +95,13 @@ class ReaderUDP {
         
         guard weHaveAConnection else {
             if functionNameThatReturnedError == "socket" {
-                throw ReaderUDPError.socket(error: errorCode)
+                throw PCarsUDPError.socket(error: errorCode)
             }
             else if functionNameThatReturnedError == "bind" {
-                throw ReaderUDPError.bind(error: errorCode)
+                throw PCarsUDPError.bind(error: errorCode)
             }
             else {
-                throw ReaderUDPError.unknown
+                throw PCarsUDPError.unknown
             }
         }
     }
@@ -137,11 +125,7 @@ class ReaderUDP {
     
     public func read(amount : Int) -> (Data?) {
         
-        let theirAddr: UnsafeMutablePointer<sockaddr>? = nil
-        let theirAddrLen: UnsafeMutablePointer<socklen_t>? = nil
-        
-        // use peeked at packet size to initialise array
-        //let requestBuffer: Array<UInt8> = Array(repeating: 0, count: amount)
+        // not sure this is right
         let buffer : UnsafeMutableRawPointer = UnsafeMutableRawPointer.allocate(byteCount: amount, alignment: 1)
         defer {
             buffer.deallocate()
@@ -150,16 +134,13 @@ class ReaderUDP {
         // now grab the packet
         let amountRead = recvfrom(self.connectionHandle, buffer,
                                   amount, 0,
-                                  theirAddr,
-                                  theirAddrLen)
+                                  nil,
+                                  nil)
         
         guard amountRead >= 0 else {
             return nil
         }
         
-        let returnbuf : Data = Data(bytesNoCopy: buffer, count: amountRead, deallocator: .none)
-        
-        
-        return (returnbuf)
+        return  Data(bytesNoCopy: buffer, count: amountRead, deallocator: .none)
     }
 }

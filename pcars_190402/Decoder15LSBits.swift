@@ -8,27 +8,53 @@
 
 import Foundation
 
+///
+/// Decoder 15 Least Significant Bits 0XXX XXXX XXXX XXXX
+///
+
 class Decoder15LSBits : Decoder {
     
     private var bytes : Data
     
+    ///
+    /// Decoder15LSBits init
+    ///
+    
     override init() {
-        bytes = Data(count: 2)
+        self.bytes = Data(count: 2)
     }
     
-    override func decode(data: inout Data) {
+    ///
+    /// Decode Next 15 Least Significant Bits
+    ///
+    /// - parameters:
+    ///   - data: to be decoded
+    /// - important: Does not remove anything
+    ///              from the data. Must call
+    ///              DecoderIncrement to move
+    ///              data along.
+    /// - throws: Out of range
+    ///
+    
+    override func decode(data: inout Data) throws {
         guard data.count >= 2 else {
-            self.bytes = Data(repeating: 0xFF, count: 2)
-            return
+            throw PCarsUDPError.outOfRange
         }
-        bytes = data.subdata(in: 0..<2)
+        self.bytes = data.subdata(in: 0..<2)
     }
+  
+    ///
+    /// Returns UInt
+    ///
+    /// - returns:
+    ///   - UInt: unsigned int
+    ///
     
     override func uint() -> UInt {
         var value : UInt = 0
         
-        value |= UInt(bytes[1]) << 8
-        value |= UInt(bytes[0] & 127)
+        value |= UInt(self.bytes[1]) << 8
+        value |= UInt(self.bytes[0] & 127)
         
         return value
     }

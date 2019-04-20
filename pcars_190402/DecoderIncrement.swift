@@ -32,13 +32,14 @@ class DecoderIncrement : Decoder {
     ///
     /// - parameters:
     ///   - data: data to be incremented
+    /// - throws: Out of range
     ///
 
-    override func decode(data: inout Data) {
-        guard data.count >= 1 else {
-            return
+    override func decode(data: inout Data) throws {
+        guard data.count >= self.amount else {
+            throw PCarsUDPError.outOfRange
         }
-        guard data.count != self.amount else {
+        guard data.count > self.amount else {
             return
         }
         data = data.advanced(by: self.amount)

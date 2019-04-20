@@ -30,15 +30,15 @@ class Decoder8 : Decoder {
     /// - parameters:
     ///   - data: to be decoded
     /// - important: Does the parameter need to be inout
+    /// - throws: Out of range
     ///
     
-    override func decode(data: inout Data) {
+    override func decode(data: inout Data) throws {
         guard data.count >= 1 else {
-            self.bytes = Data(repeating: 0xFF, count: 1)
-            return
+            throw PCarsUDPError.outOfRange
         }
         self.bytes = data.subdata(in: 0..<1)
-        guard data.count != 1 else {
+        guard data.count > 1 else {
             return
         }
         data = data.advanced(by: 1)

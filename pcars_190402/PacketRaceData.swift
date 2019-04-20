@@ -2,11 +2,37 @@
 //  PacketRaceData.swift
 //  pcars_190402
 //
-//  Created by Leigh McLean on 14/4/19.
-//  Copyright © 2019 Leigh McLean. All rights reserved.
+//  Created by Leroy on 14/4/19.
+//  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
+
+///
+/// Packet Race Data
+///
+
+///    struct sRaceData
+///    {
+///        static const unsigned int sPacketSize = 308;
+///        PacketBase sBase;                  // 0 12
+///        float sWorldFastestLapTime;        // 12
+///        float sPersonalFastestLapTime;     // 16
+///        float sPersonalFastestSector1Time; // 20
+///        float sPersonalFastestSector2Time; // 24
+///        float sPersonalFastestSector3Time; // 28
+///        float sWorldFastestSector1Time;    // 32
+///        float sWorldFastestSector2Time;    // 36
+///        float sWorldFastestSector3Time;    // 40
+///        float sTrackLength;                // 44
+///        char sTrackLocation[TRACKNAME_LENGTH_MAX];            // 48
+///        char sTrackVariation[TRACKNAME_LENGTH_MAX];           // 112
+///        char sTranslatedTrackLocation[TRACKNAME_LENGTH_MAX];  // 176
+///        char sTranslatedTrackVariation[TRACKNAME_LENGTH_MAX]; // 240
+///        unsigned short sLapsTimeInEvent;   // 304 contains lap number for lap based session or quantized session duration (number of 5mins) for timed sessions, the top bit is 1 for timed sessions
+///        signed char sEnforcedPitStopLap;   // 306
+///    };                                        // 308
+///
 
 class PacketRaceData  : Packet {
     
@@ -27,6 +53,10 @@ class PacketRaceData  : Packet {
     var lapsTimeInEvent : Decoder
     private var increment : Decoder
     var enforcedPitStopLap : Decoder
+
+    ///
+    /// PacketRaceData init
+    ///
     
     override init() {
         

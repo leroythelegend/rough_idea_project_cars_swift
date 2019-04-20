@@ -8,32 +8,51 @@
 
 import Foundation
 
+///
+/// Decoder Class Info
+///
 
 class DecoderClassInfo : Decoder {
     
     private var bytes : Data
     
-    override init() {
-        bytes = Data(count: 70)
-    }
+    ///
+    /// DecoderClassInfo init
+    ///
     
-    override func decode(data: inout Data) {
+    override init() {
+        self.bytes = Data(count: 70)
+    }
+   
+    ///
+    /// Decoder ClassInfo
+    ///
+    /// - parameters:
+    ///   - data: to be decoded
+    /// - throws: Out of range
+    ///
+    
+    override func decode(data: inout Data) throws {
         guard data.count >= 24 else {
-            self.bytes = Data(repeating: 0xFF, count: 24)
-            return
+            throw PCarsUDPError.outOfRange
         }
-        bytes = data.subdata(in: 0..<24)
-        guard data.count != 24 else {
+        self.bytes = data.subdata(in: 0..<24)
+        guard data.count > 24 else {
             return
         }
         data = data.advanced(by: 24)
     }
+
+    ///
+    /// Returns PacketClassInfo
+    ///
+    /// - returns:
+    ///   - PacketClassInfo: Packet Class Info
+    ///
     
-    override func packetClassInfo() -> PacketClassInfo {
+    override func packetClassInfo() throws -> PacketClassInfo {
         let packetClassInfo = PacketClassInfo()
-        
-        packetClassInfo.decode(data: &bytes)
-        
+        try packetClassInfo.decode(data: &self.bytes)
         return packetClassInfo
     }
 }

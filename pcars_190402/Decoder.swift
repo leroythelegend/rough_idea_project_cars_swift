@@ -21,7 +21,7 @@ class Decoder {
     ///   - data: to be decoded
     ///
 
-    func decode(data: inout Data) {}
+    func decode(data: inout Data) throws {}
 
     ///
     /// Returns unsigned int
@@ -74,7 +74,7 @@ class Decoder {
     ///   - PacketParticipantInfo: packetParticipantInfo
     ///
     
-    func participantInfo() -> PacketParticipantInfo {
+    func participantInfo() throws -> PacketParticipantInfo {
         return PacketParticipantInfo()
     }
  
@@ -85,7 +85,7 @@ class Decoder {
     ///   - PacketParticipantStatsinfo: packetParticipantStatsinfo
     ///
     
-    func participantStatsInfo() -> PacketParticipantStatsinfo {
+    func participantStatsInfo() throws -> PacketParticipantStatsinfo {
         return PacketParticipantStatsinfo()
     }
 
@@ -96,7 +96,7 @@ class Decoder {
     ///   - PacketVehicleInfo: packetVehicleInfo
     ///
     
-    func packetVehicleInfo() -> PacketVehicleInfo {
+    func packetVehicleInfo() throws -> PacketVehicleInfo {
         return PacketVehicleInfo()
     }
  
@@ -107,7 +107,7 @@ class Decoder {
     ///   - PacketClassInfo: packetClassInfo
     ///
 
-    func packetClassInfo() -> PacketClassInfo {
+    func packetClassInfo() throws -> PacketClassInfo {
         return PacketClassInfo()
     }
 

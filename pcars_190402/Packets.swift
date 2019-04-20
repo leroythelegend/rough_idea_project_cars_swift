@@ -2,20 +2,24 @@
 //  Packets.swift
 //  pcars_190402
 //
-//  Created by Leigh McLean on 14/4/19.
-//  Copyright © 2019 Leigh McLean. All rights reserved.
+//  Created by Leroy on 14/4/19.
+//  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
 
+///
+/// Packets
+///
+
 enum  Packets {
     case telemetryData(telemetry: PacketTelemetryData)
-    case raceData(PacketRaceData)
-    case participantsData(PacketParticipantsData)
-    case timingsData(PacketTimingsData)
+    case raceData(race: PacketRaceData)
+    case participantsData(participant: PacketParticipantsData)
+    case timingsData(timings: PacketTimingsData)
     case gameStateData(gameState: PacketGameStateData)
-    case timeStatsData(PacketTimeStatsData)
-    case vehicleNamesData(PacketParticipantVehicleNamesData)
-    case vehicleClassNamesData(PacketVehicleClassNamesData)
+    case timeStatsData(timeStats: PacketTimeStatsData)
+    case vehicleNamesData(vehicleNames: PacketParticipantVehicleNamesData)
+    case vehicleClassNamesData(classNames: PacketVehicleClassNamesData)
 }
 

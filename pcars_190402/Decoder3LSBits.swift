@@ -8,27 +8,49 @@
 
 import Foundation
 
+///
+/// Decoder Next 2 Most Significant Bits 0000 0XXX
+///
+
 class Decoder3LSBits : Decoder {
     
     private var bytes : Data
+   
+    ///
+    /// Decoder3LSBits init
+    ///
     
     override init() {
         bytes = Data(count: 1)
     }
-    
-    override func decode(data: inout Data) {
+
+    ///
+    /// Decode Next 2 Most Significant Bits
+    ///
+    /// - parameters:
+    ///   - data: to be decoded
+    /// - important: Does not remove anything
+    ///              from the data. Must call
+    ///              DecoderIncrement to move
+    ///              data along.
+    /// - throws: Out of range
+    ///
+
+    override func decode(data: inout Data) throws {
         guard data.count >= 1 else {
-            self.bytes = Data(repeating: 0xFF, count: 1)
-            return
+            throw PCarsUDPError.outOfRange
         }
         bytes = data.subdata(in: 0..<1)
     }
-    
-    override func uint() -> UInt {
-        var value : UInt = 0
-        
-        value = UInt(bytes[0] & 7)
-        
-        return value
+
+    ///
+    /// Returns unsigned int
+    ///
+    /// - returns:
+    ///   - UInt: unsigned int
+    ///
+
+    override func uint() -> UInt {        
+        return UInt(bytes[0] & 7)
     }
 }

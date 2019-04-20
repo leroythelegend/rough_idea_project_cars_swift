@@ -2,36 +2,58 @@
 //  DecoderPacketVehicleInfo.swift
 //  pcars_190402
 //
-//  Created by Leigh McLean on 14/4/19.
-//  Copyright © 2019 Leigh McLean. All rights reserved.
+//  Created by Leroyt on 14/4/19.
+//  Copyright © 2019 Leroy. All rights reserved.
 //
 
 import Foundation
+
+///
+/// Decoder Vehicle Info
+///
 
 class DecoderVehicleInfo : Decoder {
     
     private var bytes : Data
     
+    ///
+    /// DecoderVehicleInfo init
+    ///
+    
     override init() {
-        bytes = Data(count: 70)
+        self.bytes = Data(count: 72)
     }
     
-    override func decode(data: inout Data) {
-        guard data.count >= 70 else {
-            self.bytes = Data(repeating: 0xFF, count: 70)
+    ///
+    /// Decode VehicleInfo
+    ///
+    /// - parameters:
+    ///   - data: to be decoded
+    /// - throws: Out of range
+    ///
+    
+    override func decode(data: inout Data) throws {
+        guard data.count >= 72 else {
+            throw PCarsUDPError.outOfRange
+        }
+        self.bytes = data.subdata(in: 0..<72)
+        guard data.count > 72 else {
             return
         }
-        bytes = data.subdata(in: 0..<70)
-        guard data.count != 70 else {
-            return
-        }
-        data = data.advanced(by: 70)
+        data = data.advanced(by: 72)
     }
     
-    override func packetVehicleInfo() -> PacketVehicleInfo {
+    ///
+    /// Returns PacketVehicleInfo
+    ///
+    /// - returns:
+    ///   - participantStatsInfo: participant Stats Info
+    ///
+    
+    override func packetVehicleInfo() throws -> PacketVehicleInfo {
         let packetVehicleInfo = PacketVehicleInfo()
         
-        packetVehicleInfo.decode(data: &bytes)
+        try packetVehicleInfo.decode(data: &self.bytes)
         
         return packetVehicleInfo
     }
