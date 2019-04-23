@@ -21,9 +21,9 @@ class DecoderGameState : Decoder {
         super.init()
     }
     
-    override func decode(data: inout Data) {
-        gameState.decode(data: &data)
-        sessionState.decode(data: &data)
+    override func decode(data: inout Data) throws {
+        try gameState.decode(data: &data)
+        try sessionState.decode(data: &data)
 
         data = data.advanced(by: 1)
     }
