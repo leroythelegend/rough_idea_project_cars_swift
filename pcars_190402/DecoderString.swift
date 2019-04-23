@@ -44,7 +44,7 @@ class DecoderString : Decoder {
         }
         data = data.advanced(by: self.length)
     }
-   
+    
     ///
     /// Returns String
     ///
@@ -53,6 +53,9 @@ class DecoderString : Decoder {
     ///
     
     override func string() -> String? {
-        return String(data: self.bytes, encoding: .ascii)
+        let str = String(data: self.bytes, encoding: .ascii)!
+        let terminateIndex = str.firstIndex(of: "\0") ?? str.endIndex
+        let name = str[..<terminateIndex]
+        return String(name)
     }
 }

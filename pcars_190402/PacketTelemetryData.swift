@@ -162,7 +162,7 @@ class PacketTelemetryData  : Packet {
     var fullPositions : Array<Decoder>
     var brakeBias : Decoder
     var tickCount : Decoder
-
+    
     ///
     /// PacketTelemetryData init
     ///
@@ -215,7 +215,7 @@ class PacketTelemetryData  : Packet {
             self.extentsCentres.append(Decoder32())
             self.fullPositions.append(Decoder32())
         }
-
+        
         self.tyreFlags = Array<Decoder>()
         self.terrains = Array<Decoder>()
         self.tyreYs = Array<Decoder>()
@@ -245,7 +245,7 @@ class PacketTelemetryData  : Packet {
         for _ in 1...4 {
             self.tyreFlags.append(Decoder8())
             self.terrains.append(Decoder8())
-            self.fullPositions.append(Decoder32())
+            self.tyreYs.append(Decoder32())
             self.tyreRPSs.append(Decoder32())
             self.tyreTemps.append(Decoder8())
             self.tyreHeightsAboveGround.append(Decoder32())
@@ -259,8 +259,8 @@ class PacketTelemetryData  : Packet {
             self.tyreRimTemps.append(Decoder16())
             self.tyreInternalAirTemps.append(Decoder16())
             self.tyreTempsLeft.append(Decoder16())
-            self.tyreTempsRight.append(Decoder16())
             self.tyreTempsCentre.append(Decoder16())
+            self.tyreTempsRight.append(Decoder16())
             self.wheelLocalPositionsY.append(Decoder32())
             self.rideHeights.append(Decoder32())
             self.suspensionTravels.append(Decoder32())
@@ -269,7 +269,7 @@ class PacketTelemetryData  : Packet {
             self.airPressures.append(Decoder16())
             self.tyreCompounds.append(DecoderString(length: 40))
         }
-
+        
         self.wings = Array<Decoder>()
         
         for _ in 1...2 {
@@ -286,7 +286,7 @@ class PacketTelemetryData  : Packet {
         self.turboBoostPressure = Decoder32()
         self.brakeBias = Decoder8()
         self.tickCount = Decoder32()
-
+        
         super.init()
         
         super.addDecoder(self.viewedParticipantIndex)

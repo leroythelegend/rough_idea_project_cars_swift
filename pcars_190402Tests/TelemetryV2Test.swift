@@ -158,9 +158,6 @@ class TelemetryV2Test: XCTestCase {
                     for (index, suspensionRideHeight) in packetTelemetryData.suspensionRideHeights.enumerated() {
                         print("suspensionRideHeight_\(index) \(suspensionRideHeight.uint())")
                     }
-                    for (index, suspensionRideHeight) in packetTelemetryData.suspensionRideHeights.enumerated() {
-                        print("suspensionRideHeight_\(index) \(suspensionRideHeight.uint())")
-                    }
                     for (index, airPressure) in packetTelemetryData.airPressures.enumerated() {
                         print("airPressure_\(index) \(airPressure.uint())")
                     }
