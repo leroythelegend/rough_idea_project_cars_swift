@@ -97,6 +97,8 @@ class Decoder32 : Decoder {
         value |= UInt32(self.bytes[1]) << 8
         value |= UInt32(self.bytes[0])
         
-        return Float(bitPattern: value)
+        let float32: Float32 = Float32(bitPattern: value)
+        
+        return Float(float32)
     }
 }
