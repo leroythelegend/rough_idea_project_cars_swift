@@ -36,6 +36,7 @@ class PacketParticipantInfo  : Packet {
     var racePosition : Decoder
     var isActive : Decoder
     private var increment : Decoder
+    private var increment2 : Decoder
     var precisionXPosition : Decoder
     var precisionZPosition : Decoder
     var sector : Decoder
@@ -70,6 +71,7 @@ class PacketParticipantInfo  : Packet {
         self.racePosition = Decoder7LSBits()
         self.isActive = DecoderMSBit()
         self.increment = DecoderIncrement(amount: 1)
+        self.increment2 = DecoderIncrement(amount: 2)
         self.precisionXPosition = Decoder2MSBits()
         self.precisionZPosition = Decoder2NextMSBits()
         self.sector = Decoder4LSBits()
@@ -78,7 +80,7 @@ class PacketParticipantInfo  : Packet {
         self.pitMode = Decoder4MSBits()
         self.pitSchedule = Decoder4LSBits()
         self.isLocal = DecoderMSBit()
-        self.carIndex = Decoder7LSBits()
+        self.carIndex = Decoder15LSBits()
         self.isValidLap = Decoder4thBit()
         self.raceState = Decoder3LSBits()
         self.currentLap = Decoder8()
@@ -110,7 +112,7 @@ class PacketParticipantInfo  : Packet {
         super.addDecoder(self.increment)
         super.addDecoder(self.isLocal)
         super.addDecoder(self.carIndex)
-        super.addDecoder(self.increment)
+        super.addDecoder(self.increment2)
         super.addDecoder(self.isValidLap)
         super.addDecoder(self.raceState)
         super.addDecoder(self.increment)
