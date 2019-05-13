@@ -14,8 +14,10 @@ import Foundation
 
 class PacketGeneric  : Packet {
     
-    var buildVersionNumber : Decoder
-    var packetType : Decoder
+    var buildVersionNumber: Decoder
+    var sequenceNumber: Decoder
+    var packetType: Decoder
+    var increment: Decoder
 
     ///
     /// PacketGeneric init
@@ -24,12 +26,15 @@ class PacketGeneric  : Packet {
     override init() {
         
         self.buildVersionNumber = Decoder16()
-        self.packetType = Decoder8()
+        self.sequenceNumber = Decoder6MSBits()
+        self.packetType = Decoder2LSBits()
+        self.increment = DecoderIncrement(amount: 1)
         
         super.init()
         
-        super.addDecoder(buildVersionNumber)
-        super.addDecoder(packetType)
-
+        super.addDecoder(self.buildVersionNumber)
+        super.addDecoder(self.sequenceNumber)
+        super.addDecoder(self.packetType)
+        super.addDecoder(self.increment)
     }
 }

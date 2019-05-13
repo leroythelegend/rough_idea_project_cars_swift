@@ -21,5 +21,8 @@ enum  Packets {
     case timeStatsData(timeStats: PacketTimeStatsData)
     case vehicleNamesData(vehicleNames: PacketParticipantVehicleNamesData)
     case vehicleClassNamesData(classNames: PacketVehicleClassNamesData)
+    case participantInfoStringsData(participantInfoStrings: PacketParticipantInfoStrings)
+    case participantInfoStringsAdditionalData(participantInfoStringsAdditional: ParticipantInfoStringsAdditional)
+    case telemetryDataV1(telemetryV1: PacketTelemetryDataV1)
 }
 
