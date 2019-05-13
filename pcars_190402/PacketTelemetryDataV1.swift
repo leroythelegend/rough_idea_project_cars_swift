@@ -182,6 +182,9 @@ class PacketTelemetryDataV1  : Packet {
     var worldFastestSector1Time: Decoder
     var worldFastestSector2Time: Decoder
     var worldFastestSector3Time: Decoder
+    var joyPad: Decoder
+    var highestFlagColour: Decoder
+    var highestFlagReason: Decoder
     
     ///
     /// PacketTelemetryData init
@@ -224,6 +227,9 @@ class PacketTelemetryDataV1  : Packet {
         self.worldFastestSector1Time = Decoder32()
         self.worldFastestSector2Time = Decoder32()
         self.worldFastestSector3Time = Decoder32()
+        self.joyPad = Decoder16()
+        self.highestFlagColour = Decoder4LSBits()
+        self.highestFlagReason = Decoder4MSBits();
         
         super.init()
         
@@ -263,6 +269,10 @@ class PacketTelemetryDataV1  : Packet {
         super.addDecoder(self.worldFastestSector1Time)
         super.addDecoder(self.worldFastestSector2Time)
         super.addDecoder(self.worldFastestSector3Time)
+        super.addDecoder(self.joyPad)
+        super.addDecoder(self.highestFlagColour)
+        super.addDecoder(self.highestFlagReason)
+        super.addDecoder(self.increment)
     }
 
 }
