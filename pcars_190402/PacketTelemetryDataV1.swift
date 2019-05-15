@@ -185,6 +185,23 @@ class PacketTelemetryDataV1  : Packet {
     var joyPad: Decoder
     var highestFlagColour: Decoder
     var highestFlagReason: Decoder
+    var pitMode: Decoder
+    var pitSchedule: Decoder
+    var oilTempCelsius: Decoder
+    var oilPressureKPa: Decoder
+    var waterTempCelsius: Decoder
+    var waterPressureKpa: Decoder
+    var fuelPressureKpa: Decoder
+    var carFlags: Decoder
+    var fuelCapacity: Decoder
+    var brake: Decoder
+    var throttle: Decoder
+    var clutch: Decoder
+    var steering: Decoder
+    var fuelLevel: Decoder
+    var speed: Decoder
+    var rpm: Decoder
+    var maxRpm: Decoder
     
     ///
     /// PacketTelemetryData init
@@ -229,7 +246,24 @@ class PacketTelemetryDataV1  : Packet {
         self.worldFastestSector3Time = Decoder32()
         self.joyPad = Decoder16()
         self.highestFlagColour = Decoder4LSBits()
-        self.highestFlagReason = Decoder4MSBits();
+        self.highestFlagReason = Decoder4MSBits()
+        self.pitMode = Decoder4LSBits()
+        self.pitSchedule = Decoder4MSBits()
+        self.oilTempCelsius = Decoder16()
+        self.oilPressureKPa = Decoder16()
+        self.waterTempCelsius = Decoder16()
+        self.waterPressureKpa = Decoder16()
+        self.fuelPressureKpa = Decoder16()
+        self.carFlags = Decoder8()
+        self.fuelCapacity = Decoder8()
+        self.brake = Decoder8()
+        self.throttle = Decoder8()
+        self.clutch = Decoder8()
+        self.steering = Decoder8()
+        self.fuelLevel = Decoder32()
+        self.speed = Decoder32()
+        self.rpm = Decoder16()
+        self.maxRpm = Decoder16()
         
         super.init()
         
@@ -273,6 +307,24 @@ class PacketTelemetryDataV1  : Packet {
         super.addDecoder(self.highestFlagColour)
         super.addDecoder(self.highestFlagReason)
         super.addDecoder(self.increment)
+        super.addDecoder(self.pitMode)
+        super.addDecoder(self.pitSchedule)
+        super.addDecoder(self.increment)
+        super.addDecoder(self.oilTempCelsius)
+        super.addDecoder(self.oilPressureKPa)
+        super.addDecoder(self.waterTempCelsius)
+        super.addDecoder(self.waterPressureKpa)
+        super.addDecoder(self.fuelPressureKpa)
+        super.addDecoder(self.carFlags)
+        super.addDecoder(self.fuelCapacity)
+        super.addDecoder(self.brake)
+        super.addDecoder(self.throttle)
+        super.addDecoder(self.clutch)
+        super.addDecoder(self.steering)
+        super.addDecoder(self.fuelLevel)
+        super.addDecoder(self.speed)
+        super.addDecoder(self.rpm)
+        super.addDecoder(self.maxRpm)
     }
 
 }
