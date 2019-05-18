@@ -202,6 +202,9 @@ class PacketTelemetryDataV1  : Packet {
     var speed: Decoder
     var rpm: Decoder
     var maxRpm: Decoder
+    var numGears: Decoder
+    var gear: Decoder
+    var boostAmount: Decoder
     
     ///
     /// PacketTelemetryData init
@@ -264,6 +267,9 @@ class PacketTelemetryDataV1  : Packet {
         self.speed = Decoder32()
         self.rpm = Decoder16()
         self.maxRpm = Decoder16()
+        self.numGears = Decoder4MSBits()
+        self.gear = Decoder4LSBits()
+        self.boostAmount = Decoder8()
         
         super.init()
         
@@ -325,6 +331,10 @@ class PacketTelemetryDataV1  : Packet {
         super.addDecoder(self.speed)
         super.addDecoder(self.rpm)
         super.addDecoder(self.maxRpm)
+        super.addDecoder(self.numGears)
+        super.addDecoder(self.gear)
+        super.addDecoder(self.increment)
+        super.addDecoder(self.boostAmount)
     }
 
 }
