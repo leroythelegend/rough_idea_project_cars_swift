@@ -205,6 +205,7 @@ class PacketTelemetryDataV1  : Packet {
     var numGears: Decoder
     var gear: Decoder
     var boostAmount: Decoder
+    var enforcedPitStopLap: Decoder
     
     ///
     /// PacketTelemetryData init
@@ -270,6 +271,7 @@ class PacketTelemetryDataV1  : Packet {
         self.numGears = Decoder4MSBits()
         self.gear = Decoder4LSBits()
         self.boostAmount = Decoder8()
+        self.enforcedPitStopLap = Decoder8()
         
         super.init()
         
@@ -335,6 +337,7 @@ class PacketTelemetryDataV1  : Packet {
         super.addDecoder(self.gear)
         super.addDecoder(self.increment)
         super.addDecoder(self.boostAmount)
+        super.addDecoder(self.enforcedPitStopLap)
     }
 
 }
