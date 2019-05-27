@@ -206,6 +206,7 @@ class PacketTelemetryDataV1  : Packet {
     var gear: Decoder
     var boostAmount: Decoder
     var enforcedPitStopLap: Decoder
+    var crashState: Decoder
     
     ///
     /// PacketTelemetryData init
@@ -272,6 +273,7 @@ class PacketTelemetryDataV1  : Packet {
         self.gear = Decoder4LSBits()
         self.boostAmount = Decoder8()
         self.enforcedPitStopLap = Decoder8()
+        self.crashState = Decoder8()
         
         super.init()
         
@@ -338,6 +340,7 @@ class PacketTelemetryDataV1  : Packet {
         super.addDecoder(self.increment)
         super.addDecoder(self.boostAmount)
         super.addDecoder(self.enforcedPitStopLap)
+        super.addDecoder(self.crashState)
     }
 
 }
