@@ -96,18 +96,18 @@ class Decoder {
     ///   - PacketVehicleInfo: packetVehicleInfo
     ///
     
-    func packetVehicleInfo() throws -> PacketVehicleInfo {
+    func vehicleInfo() throws -> PacketVehicleInfo {
         return PacketVehicleInfo()
     }
  
     ///
-    /// Returns PacketClassInfo
+    /// Returns classInfo
     ///
     /// - returns:
     ///   - PacketClassInfo: packetClassInfo
     ///
 
-    func packetClassInfo() throws -> PacketClassInfo {
+    func classInfo() throws -> PacketClassInfo {
         return PacketClassInfo()
     }
 

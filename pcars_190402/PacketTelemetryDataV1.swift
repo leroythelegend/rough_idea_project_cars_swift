@@ -216,6 +216,7 @@ class PacketTelemetryDataV1  : Packet {
     var worldAccelerations: Array<Decoder>
     var extentsCentres: Array<Decoder>
 
+
     ///
     /// PacketTelemetryData init
     ///

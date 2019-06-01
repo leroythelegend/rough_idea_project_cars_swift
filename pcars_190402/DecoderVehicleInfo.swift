@@ -15,6 +15,7 @@ import Foundation
 class DecoderVehicleInfo : Decoder {
     
     private var bytes : Data
+    private var packetVehicleInfo : PacketVehicleInfo
     
     ///
     /// DecoderVehicleInfo init
@@ -22,6 +23,7 @@ class DecoderVehicleInfo : Decoder {
     
     override init() {
         self.bytes = Data(count: 72)
+        self.packetVehicleInfo = PacketVehicleInfo()
     }
     
     ///
@@ -41,6 +43,7 @@ class DecoderVehicleInfo : Decoder {
             return
         }
         data = data.advanced(by: 72)
+        try self.packetVehicleInfo.decode(data: &self.bytes)
     }
     
     ///
@@ -50,12 +53,8 @@ class DecoderVehicleInfo : Decoder {
     ///   - participantStatsInfo: participant Stats Info
     ///
     
-    override func packetVehicleInfo() throws -> PacketVehicleInfo {
-        let packetVehicleInfo = PacketVehicleInfo()
-        
-        try packetVehicleInfo.decode(data: &self.bytes)
-        
-        return packetVehicleInfo
+    override func vehicleInfo() throws -> PacketVehicleInfo {
+        return self.packetVehicleInfo
     }
 }
 
