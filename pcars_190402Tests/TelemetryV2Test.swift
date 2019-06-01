@@ -193,7 +193,7 @@ class TelemetryV2Test: XCTestCase {
                     print("localParticipantIndex             \(packetTimingsdata.localParticipantIndex.uint())")
                     print("tickCount                         \(packetTimingsdata.tickCount.uint())")
                     guard let participant = try? packetTimingsdata.partcipants[Int(packetTimingsdata.localParticipantIndex.uint())].participantInfo() else {
-                        break
+                       break
                     }
                     for (index, worldPosition) in participant.worldPositions.enumerated() {
                         print("worldPosition_\(index) \(worldPosition.int())")
@@ -278,7 +278,7 @@ class TelemetryV2Test: XCTestCase {
                     print("participantIndex                       \(stats.participantIndex.uint())")
                 case let .vehicleNamesData(vehicleNames: packetVehicleNamesData)?:
                     for (index, vehicleName) in packetVehicleNamesData.vehicles.enumerated() {
-                        guard let packet = try? vehicleName.packetVehicleInfo() else {
+                        guard let packet = try? vehicleName.vehicleInfo() else {
                             continue
                         }
                         guard let nameStr = packet.name.string() else {
@@ -290,7 +290,7 @@ class TelemetryV2Test: XCTestCase {
                     }
                 case let .vehicleClassNamesData(classNames: packetClassNamesData)?:
                     for (index, className) in packetClassNamesData.classInfos.enumerated() {
-                        guard let packet = try? className.packetClassInfo() else {
+                        guard let packet = try? className.classInfo() else {
                             continue
                         }
                         guard let nameStr = packet.name.string() else {
