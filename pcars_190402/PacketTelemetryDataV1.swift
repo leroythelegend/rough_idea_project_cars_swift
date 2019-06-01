@@ -205,7 +205,17 @@ class PacketTelemetryDataV1  : Packet {
     var numGears: Decoder
     var gear: Decoder
     var boostAmount: Decoder
-    
+    var enforcedPitStopLap: Decoder
+    var crashState: Decoder
+    var odometerKM: Decoder
+    var orientations: Array<Decoder>
+    var localVelocities: Array<Decoder>
+    var worldVelocities: Array<Decoder>
+    var angularVelocities: Array<Decoder>
+    var localAccelerations: Array<Decoder>
+    var worldAccelerations: Array<Decoder>
+    var extentsCentres: Array<Decoder>
+
     ///
     /// PacketTelemetryData init
     ///
@@ -270,6 +280,27 @@ class PacketTelemetryDataV1  : Packet {
         self.numGears = Decoder4MSBits()
         self.gear = Decoder4LSBits()
         self.boostAmount = Decoder8()
+        self.enforcedPitStopLap = Decoder8()
+        self.crashState = Decoder8()
+        self.odometerKM = Decoder32()
+        self.orientations = Array<Decoder>()
+        self.localVelocities = Array<Decoder>()
+        self.worldVelocities = Array<Decoder>()
+        self.angularVelocities = Array<Decoder>()
+        self.localAccelerations = Array<Decoder>()
+        self.worldAccelerations = Array<Decoder>()
+        self.extentsCentres = Array<Decoder>()
+
+        for _ in 1...3 {
+            self.orientations.append(Decoder32())
+            self.localVelocities.append(Decoder32())
+            self.worldVelocities.append(Decoder32())
+            self.angularVelocities.append(Decoder32())
+            self.localAccelerations.append(Decoder32())
+            self.worldAccelerations.append(Decoder32())
+            self.extentsCentres.append(Decoder32())
+//            self.fullPositions.append(Decoder32())
+        }
         
         super.init()
         
@@ -335,6 +366,30 @@ class PacketTelemetryDataV1  : Packet {
         super.addDecoder(self.gear)
         super.addDecoder(self.increment)
         super.addDecoder(self.boostAmount)
+        super.addDecoder(self.enforcedPitStopLap)
+        super.addDecoder(self.crashState)
+        super.addDecoder(self.odometerKM)
+        for orientation in self.orientations {
+            super.addDecoder(orientation)
+        }
+        for localVelocitie in self.localVelocities {
+            super.addDecoder(localVelocitie)
+        }
+        for worldVelocity in self.worldVelocities {
+            super.addDecoder(worldVelocity)
+        }
+        for angularVelocity in self.angularVelocities {
+            super.addDecoder(angularVelocity)
+        }
+        for localAcceleration in self.localAccelerations {
+            super.addDecoder(localAcceleration)
+        }
+        for worldAcceleration in self.worldAccelerations {
+            super.addDecoder(worldAcceleration)
+        }
+        for extentsCentre in self.extentsCentres {
+            super.addDecoder(extentsCentre)
+        }
     }
 
 }
